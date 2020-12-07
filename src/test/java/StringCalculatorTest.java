@@ -38,9 +38,14 @@ public class StringCalculatorTest {
         assertEquals(3, result);
     }
 
-    @Test
-    void twoNumbersNewLineDelimitedShouldReturnSum() {
-        var result = calculator.Add("1\n2");
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "3\n3",
+            "1\n2\n3"
+    })
+    void singleOrTwoNewLinesDelimitedShouldReturnsSum(String numbers) {
+        var result = calculator.Add(numbers);
+        assertEquals(6, result);
     }
 
     @Test
@@ -67,7 +72,7 @@ public class StringCalculatorTest {
             "//[*][%]\n1*2%3",
             "//[**][%%]\n1*2%3"
     })
-    void anyLengthDelimitedShouldReturnSum(String differentDelimiter){
+    void anyLengthDelimitedShouldReturnSum(String differentDelimiter) {
         var result = calculator.Add(differentDelimiter);
         assertEquals(6, result);
     }

@@ -30,4 +30,10 @@ public class StringCalculatorTest {
     void twoNumbersNewLineDelimitedShouldReturnSum(){
         var result = calculator.Add("1\n2");
     }
+
+    @Test
+    void threeDelimitedCommaReturnsSum(){
+        var result = calculator.Add("1,2,3");
+        assertEquals(6,result);
+    }
 }

@@ -25,4 +25,9 @@ public class StringCalculatorTest {
         var result = calculator.Add("1,2");
         assertEquals(3,result);
     }
+
+    @Test
+    void twoNumbersNewLineDelimitedShouldReturnSum(){
+        var result = calculator.Add("1\n2");
+    }
 }

@@ -17,6 +17,16 @@ public class StringCalculatorTest {
         assertEquals(0, result);
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "-1,2",
+            "-1,-2,3"
+    })
+    void whenInputIsNegativeNumbersThrowIllegalArgumentException(String negative) {
+
+        assertThrows(IllegalArgumentException.class, () -> calculator.Add(negative));
+    }
+
     @Test
     void singleNumberShouldReturnsSameNumber() {
         var result = calculator.Add("1");
@@ -39,14 +49,10 @@ public class StringCalculatorTest {
         var result = calculator.Add("1,2,3");
         assertEquals(6, result);
     }
-
-    @ParameterizedTest
-    @ValueSource(strings = {
-            "-1,2",
-            "-1,-2,3"
-    })
-     void whenInputIsNegativeNumbersThrowIllegalArgumentException(String negative){
-     
-        assertThrows(IllegalArgumentException.class, () -> calculator.Add(negative));
+    @Test
+    void ignoresNumberGreaterThan1000(){
+        var result = calculator.Add("10,20,1005");
+        assertEquals(30,result);
     }
+
 }

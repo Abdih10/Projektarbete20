@@ -24,6 +24,6 @@ public class StringCalculator {
     private int getSum(String[] numbers) {
         return Arrays.stream(numbers).mapToInt(this::StringToInt).peek(n ->{
             if (n < 0) throw new IllegalArgumentException("Negatives are not allowed");
-        }).sum();
+        }).filter(n -> n <= 1000).sum();
     }
 }

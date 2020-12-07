@@ -22,6 +22,8 @@ public class StringCalculator {
     }
 
     private int getSum(String[] numbers) {
-        return Arrays.stream(numbers).mapToInt(this::StringToInt).sum();
+        return Arrays.stream(numbers).mapToInt(this::StringToInt).peek(n ->{
+            if (n < 0) throw new IllegalArgumentException("Negatives are not allowed");
+        }).sum();
     }
 }

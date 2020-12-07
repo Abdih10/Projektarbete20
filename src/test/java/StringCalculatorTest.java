@@ -19,4 +19,10 @@ public class StringCalculatorTest {
         var result = calculator.Add("1");
         assertEquals(1, result);
     }
+
+    @Test
+    void twoNumbersCommaDelimitedReturnsSum(){
+        var result = calculator.Add("1,2");
+        assertEquals(3,result);
+    }
 }

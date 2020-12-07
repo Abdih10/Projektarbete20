@@ -37,7 +37,7 @@ public class StringCalculatorTest {
             "1,5",
             "1,2,3"
     })
-    void commaWithTwoAndThreeNumbersDelimitedReturnsSum(String numbers){
+    void commaWithTwoAndThreeNumbersDelimitedReturnsSum(String numbers) {
         var result = calculator.Add(numbers);
         assertEquals(6, result);
     }
@@ -49,6 +49,12 @@ public class StringCalculatorTest {
     })
     void newLineWithTwoAndThreeNumbersDelimitedReturnsSum(String numbers) {
         var result = calculator.Add(numbers);
+        assertEquals(6, result);
+    }
+
+    @Test
+    void newLineAndCommaDelimitedReturnsSum(){
+        var result = calculator.Add("1,2\n3");
         assertEquals(6, result);
     }
 

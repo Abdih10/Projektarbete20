@@ -1,5 +1,4 @@
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -49,10 +48,16 @@ public class StringCalculatorTest {
         var result = calculator.Add("1,2,3");
         assertEquals(6, result);
     }
+
     @Test
-    void ignoresNumberGreaterThan1000(){
+    void ignoresNumberGreaterThan1000() {
         var result = calculator.Add("10,20,1005");
-        assertEquals(30,result);
+        assertEquals(30, result);
     }
 
+   @Test
+    void differentDelimitedReturnsSum(){
+        var result = calculator.Add("//;\n1;2");
+        assertEquals(3,result);
+   }
 }

@@ -1,10 +1,17 @@
 import java.util.Arrays;
 
 public class StringCalculator {
-    private final String delimiter = "[,\n]";
+    private final String delimiter = "[,\n;]";
 
     public int Add(String input) {
-        String[] numbers = input.split(delimiter);
+        StringBuilder regex = new StringBuilder(delimiter);
+        StringBuilder result = new StringBuilder();
+
+        if (input.startsWith("//")){
+           regex.append(input,input.indexOf("//"), input.indexOf(";"));
+           result.append(input.substring(input.indexOf("\n")+1));
+        }
+        String[] numbers = result.toString().split(delimiter);
 
 
         if (input.isEmpty()) {

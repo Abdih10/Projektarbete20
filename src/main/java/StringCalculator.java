@@ -1,8 +1,8 @@
 public class StringCalculator {
-    public int Add(String s) {
-        if (s.isEmpty()) {
+    public int Add(String input) {
+        if (input.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(s);
+        return Integer.parseInt(input);
     }
 }

@@ -1,21 +1,21 @@
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringCalculatorTest {
 
+    private final StringCalculator calculator = new StringCalculator();
+
     @Test
     void emptyStringShouldReturnsZero() {
-        StringCalculator calculator = new StringCalculator();
         var result = calculator.Add("");
         assertEquals(0, result);
     }
 
     @Test
     void singleNumberShouldReturnsSameNumber() {
-        StringCalculator calculator = new StringCalculator();
-
         var result = calculator.Add("1");
         assertEquals(1, result);
     }

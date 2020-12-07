@@ -1,17 +1,19 @@
 import java.util.Arrays;
 
 public class StringCalculator {
-    private final String delimiter = "[,\n;]";
 
     public int Add(String input) {
+        String delimiter = "[,\n;]";
         StringBuilder regex = new StringBuilder(delimiter);
         StringBuilder result = new StringBuilder();
 
         if (input.startsWith("//")){
-           regex.append(input,input.indexOf("//"), input.indexOf(";"));
-           result.append(input.substring(input.indexOf("\n")+1));
+           regex.append(input,input.indexOf("//")+ 2, input.indexOf("\n"));
+           result.append(input.substring(input.indexOf("\n")+1).replace("***",","));
+        } else{
+            result.append(input);
         }
-        String[] numbers = result.toString().split(delimiter);
+        String[] numbers = result.toString().split("[" + regex + "]");
 
 
         if (input.isEmpty()) {

@@ -55,9 +55,19 @@ public class StringCalculatorTest {
         assertEquals(30, result);
     }
 
-   @Test
-    void differentDelimitedReturnsSum(){
+    @Test
+    void differentDelimitedReturnsSum() {
         var result = calculator.Add("//;\n1;2");
-        assertEquals(3,result);
-   }
+        assertEquals(3, result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "//[***]\n1***2***3",
+            "//[*][%]\n1*2%3"
+    })
+    void anyLengthDelimitedShouldReturnSum(String differentDelimiter){
+        var result = calculator.Add(differentDelimiter);
+        assertEquals(6, result);
+    }
 }

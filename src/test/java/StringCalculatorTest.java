@@ -32,10 +32,14 @@ public class StringCalculatorTest {
         assertEquals(1, result);
     }
 
-    @Test
-    void twoNumbersCommaDelimitedReturnsSum() {
-        var result = calculator.Add("1,2");
-        assertEquals(3, result);
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "1,5",
+            "1,2,3"
+    })
+    void commaWithTwoAndThreeNumbersDelimitedReturnsSum(String numbers){
+        var result = calculator.Add(numbers);
+        assertEquals(6, result);
     }
 
     @ParameterizedTest
@@ -43,14 +47,8 @@ public class StringCalculatorTest {
             "3\n3",
             "1\n2\n3"
     })
-    void singleOrTwoNewLinesDelimitedShouldReturnsSum(String numbers) {
+    void newLineWithTwoAndThreeNumbersDelimitedReturnsSum(String numbers) {
         var result = calculator.Add(numbers);
-        assertEquals(6, result);
-    }
-
-    @Test
-    void threeDelimitedCommaReturnsSum() {
-        var result = calculator.Add("1,2,3");
         assertEquals(6, result);
     }
 

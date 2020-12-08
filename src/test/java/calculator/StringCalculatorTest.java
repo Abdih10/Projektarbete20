@@ -1,3 +1,4 @@
+package calculator;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -53,7 +54,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    void newLineAndCommaDelimitedReturnsSum(){
+    void newLineAndCommaDelimitedReturnsSum() {
         var result = calculator.Add("1,2\n3");
         assertEquals(6, result);
     }

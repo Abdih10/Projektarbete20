@@ -21,7 +21,7 @@ public class StringCalculatorTest {
     @ValueSource(strings = {
             "-1,2",
             "-1,-2,3",
-            "-1,-2,-3"
+            "-2,-2,-1,-1"
     })
     void whenInputIsNegativeNumbersThrowIllegalArgumentException(String negative) {
 
@@ -37,7 +37,7 @@ public class StringCalculatorTest {
     @ParameterizedTest
     @ValueSource(strings = {
             "1,5",
-            "1,2,3"
+            "2,2,2"
     })
     void commaWithTwoAndThreeNumbersDelimitedReturnsSum(String numbers) {
         var result = calculator.Add(numbers);

@@ -16,7 +16,7 @@ public class StringCalculator {
             return 0;
         }
         if (input.length() == 1) {
-            return StringToInt(input);
+            return stringToInt(input);
         } else {
             return getSum(numbers);
         }
@@ -34,16 +34,16 @@ public class StringCalculator {
         } else {
             result.append(input);
         }
-        return result.toString().split("[" + regex + "]");
+        return result.toString().split(String.format("[%s]", regex));
     }
 
-    private int StringToInt(String input) {
+    private int stringToInt(String input) {
         return Integer.parseInt(input);
     }
 
     private int getSum(String[] numbers) {
         return Arrays.stream(numbers)
-                .mapToInt(this::StringToInt)
+                .mapToInt(this::stringToInt)
                 .peek(n -> {
                     if (n < 0) throw new IllegalArgumentException("Negatives are not allowed");
                 }).filter(n -> n <= 1000)

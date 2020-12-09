@@ -43,10 +43,10 @@ public class StringCalculator {
 
     private int getSum(String[] numbers) {
         return Arrays.stream(numbers)
-                .mapToInt(this::stringToInt)
+                .mapToInt(Integer::parseInt)
                 .peek(n -> {
-                    if (n < 0) throw new IllegalArgumentException("Negatives are not allowed");
-                }).filter(n -> n <= 1000)
+                    if (n < 1) throw new IllegalArgumentException("Negatives are not allowed");
+                }).filter(n -> n < 999)
                 .sum();
     }
 }

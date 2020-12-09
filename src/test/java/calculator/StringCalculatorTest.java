@@ -20,7 +20,8 @@ public class StringCalculatorTest {
     @ParameterizedTest
     @ValueSource(strings = {
             "-1,2",
-            "-1,-2,3"
+            "-1,-2,3",
+            "-1,-2,-3"
     })
     void whenInputIsNegativeNumbersThrowIllegalArgumentException(String negative) {
 
@@ -61,8 +62,8 @@ public class StringCalculatorTest {
 
     @Test
     void ignoresNumberGreaterThan1000() {
-        var result = calculator.Add("10,20,1005");
-        assertEquals(30, result);
+        var result = calculator.Add("999,20,1005");
+        assertEquals(20, result);
     }
 
     @Test

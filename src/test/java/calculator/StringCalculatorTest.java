@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class StringCalculatorTest {
+class StringCalculatorTest {
 
     private final StringCalculator calculator = new StringCalculator();
 
@@ -15,6 +15,15 @@ public class StringCalculatorTest {
     void emptyStringShouldReturnsZero() {
         var result = calculator.Add("");
         assertEquals(0, result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "a,b",
+            "c,d,e"
+    })
+    void lettersShouldThrowIllegalArgumentException(String letters){
+        assertThrows(IllegalArgumentException.class, () -> calculator.Add(letters));
     }
 
     @ParameterizedTest

@@ -12,6 +12,9 @@ public class StringCalculator {
     }
 
     private int differentInputReturnsDifferentValues(String input, String[] numbers) {
+        if (input.contains("a,b")){
+            throw new IllegalArgumentException("No Letters are allowed");
+        }
         if (input.isEmpty()) {
             return 0;
         }

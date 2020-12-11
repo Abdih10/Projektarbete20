@@ -29,8 +29,8 @@ public class StringCalculator {
         StringBuilder result = new StringBuilder();
 
         if (input.startsWith("//")) {
-            regex.append(input, input.indexOf("//") + 2, input.indexOf("\n"));
-            result.append(input.substring(input.indexOf("\n") + 1).replace("***", ","));
+            regex.append(input, input.indexOf("//") + 2, input.indexOf('\n'));
+            result.append(input.substring(input.indexOf('\n') + 1).replace("***", ","));
         } else {
             result.append(input);
         }
